@@ -9,28 +9,29 @@ import { PrestamosService } from 'src/app/prestamos.service';
   styleUrls: ['./solicitudes.component.css']
 })
 export class SolicitudesComponent implements OnInit {
-  Prestamos : Prestamos[]
+  prestamos  : Prestamos[]
 
-  constructor( private PrestamosService: PrestamosService) { }
+  constructor( private prestamosService: PrestamosService) { }
 
   ngOnInit(): void {
-    //console.log("hola");
-    this.PrestamosService.getSolicitudes().subscribe( (res) => {
-      this.Prestamos = res.map( (e) => {
-        //console.log("payloadddd" + e.payload);
+
+    this.prestamosService.getSolicitudes().subscribe( (res) => {
+      this.prestamos = res.map( (e) => {
+
         return {
         id: e.payload.doc.id,
         ...(e.payload.doc.data() as Prestamos)
 
       };
     });
+    console.log(this.prestamos);
     });
 
     }
 
 
 
-    deleteRow = (sol) => { this.PrestamosService.deleteSolicitudes
+    deleteRow = (sol) => { this.prestamosService.deleteSolicitudes
 
     }
 
