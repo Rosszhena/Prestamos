@@ -1,1 +1,21 @@
 <h1>Componente Solicitudes Create</h1>
+<form [formGroup]="solForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <div class="mb-3">
+    <label class="form-label">usuario</label>
+    <input formControlName="usuario" type="text" class="form-control" required>
+  </div>
+ <div class="mb-3">
+   <label class="form-label">Valor Solicitado</label>
+   <input formControlName="valorSolicitado" type="number" class="form-control" required>
+ </div>
+ <div class="mb-3">
+   <label class="form-label">Fecha Pago</label>
+   <input formControlName="fechaPago" type="text" class="form-control" required>
+ </div>
+ <div class="mb-3">
+   <label class="form-label">estatus</label>
+   <input formControlName="estatus" type="text" class="form-control" required>
+ </div>
+ <button [disabled]="!solForm.valid" type="submit" class="btn btn-primary">Store</button>
+</form>
