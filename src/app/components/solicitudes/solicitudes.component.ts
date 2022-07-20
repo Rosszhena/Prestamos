@@ -31,7 +31,8 @@ export class SolicitudesComponent implements OnInit {
 
 
 
-    deleteRow = (sol) => { this.prestamosService.deleteSolicitudes
+    deleteRow = (sol) => {
+      this.prestamosService.deleteSolicitudes(sol)
 
     }
 

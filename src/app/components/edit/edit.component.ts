@@ -31,6 +31,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activateRoute.snapshot.paramMap.get('id')
+    console.log(id);
     this.prestamosService.getSolicitudesById(id).subscribe (res => {
       this.solRef = res
       console.log(this.solRef)
